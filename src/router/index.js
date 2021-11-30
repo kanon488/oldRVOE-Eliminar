@@ -1,14 +1,45 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-
+import Login from '../components/Public/Login.vue';
+import PanelDeControl from '../components/Admin/PanelDeControl';
+import AdminSolicitudes from '../components/Admin/AdminSolicitudes';
+import DetalleSolicitud from '../components/Admin/DetalleSolicitud';
+import AsignarSolicitud from '../components/Admin/AsignarSolicitud';
+import AdminOpiniones from '../components/Admin/AdminOpiniones';
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Login',
+    component: Login
+  },
+  //Administrador RVOES
+  {
+    path: '/PanelDeControl',
+    name: 'AdminPanel',
+    component: PanelDeControl,
+    children:[{
+    path: '/AdminSolicitudes',
+    name: 'AdminSolicitudes',
+    component: AdminSolicitudes,
+    },
+    {
+    path: '/DetalleSolicitud/:id',
+    name: 'DetalleSolicitud',
+    component: DetalleSolicitud,
+    },
+    {
+      path: '/AsignarArea/:id',
+      name: 'AsignarArea',
+      component: AsignarSolicitud,
+    },
+    {
+      path:'/AdminOpiniones/:id',
+      name: 'AdminOpiniones',
+      component: AdminOpiniones
+    }
+  ]
   },
   {
     path: '/about',

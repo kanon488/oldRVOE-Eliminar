@@ -1,12 +1,21 @@
 <template>
     <v-app id="inspire">
     <v-navigation-drawer
+    class="blue-grey lighten-5"
       v-model="drawer"
       :clipped="$vuetify.breakpoint.mdAndUp"
       app
     >
       <v-list dense>
         <template>
+          <v-list-item link>
+            <v-list-item-content>
+              <v-list-item-title class="text-h6">
+                BIENVENIDO:<br>
+                <p class="mt-3">Sandra Adams</p>
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
           <v-list-item :to="{ name: 'AdminPanel' }">
             <v-list-item-action>
               <v-icon>mdi-home</v-icon>
@@ -17,15 +26,14 @@
         <template>
           <v-list-group >
             <v-list-item slot="activator">
-              <v-list-item-content>
-                <v-list-item-title>
-                  Solicitudes
-                </v-list-item-title>
-              </v-list-item-content>
+              <v-list-item-action>
+              <v-icon>mdi-file-document-multiple-outline </v-icon>
+            </v-list-item-action>
+            <v-list-item-title> Solicitudes </v-list-item-title>
             </v-list-item>
             <v-list-item :to="{ name: 'AdminSolicitudes' }">
               <v-list-item-action>
-                <v-icon>mdi-table_chart</v-icon>
+                <v-icon>mdi-text-box-search-outline </v-icon>
               </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title>
@@ -35,7 +43,7 @@
             </v-list-item>
             <v-list-item :to="{ name: 'AdminSolventacion' }">
               <v-list-item-action>
-                <v-icon>mdi-table_chart</v-icon>
+                <v-icon>mdi-paperclip</v-icon>
               </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title>
@@ -45,7 +53,7 @@
             </v-list-item>
             <v-list-item :to="{ name: 'AdminSolicitudAcuerdo' }">
               <v-list-item-action>
-                <v-icon>mdi-table_chart</v-icon>
+                <v-icon>mdi-handshake-outline </v-icon>
               </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title>
@@ -58,6 +66,9 @@
         <template>
           <v-list-group >
             <v-list-item slot="activator">
+              <v-list-item-action>
+                <v-icon>mdi-account-group </v-icon>
+              </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title>
                   Usuarios
@@ -66,7 +77,7 @@
             </v-list-item>
             <v-list-item :to="{ name: 'AdminUsuarios' }">
               <v-list-item-action>
-                <v-icon>mdi-table_chart</v-icon>
+                <v-icon>mdi-account-multiple</v-icon>
               </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title>
@@ -79,6 +90,9 @@
         <template>
           <v-list-group >
             <v-list-item slot="activator">
+              <v-list-item-action>
+                <v-icon>mdi-certificate</v-icon>
+              </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title>
                   RVOES
@@ -87,7 +101,7 @@
             </v-list-item>
             <v-list-item :to="{ name: 'AdminRVOES' }">
               <v-list-item-action>
-                <v-icon>mdi-table_chart</v-icon>
+                <v-icon>mdi-file-certificate</v-icon>
               </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title>
@@ -121,16 +135,15 @@
     </v-app-bar>
     <v-main>
       <v-container fluid fill-height>
-        <v-row class="fill-height">
-          <v-col cols="12" class="fill-height">
+        <v-row class="fill-height d-flex justify-center">
+          <v-col cols="12" xl="10" lg="10" md="10" sm="12" xs="12" class="fill-height">
             <router-view></router-view>
-            Contenedor
           </v-col>
         </v-row>
       </v-container>
     </v-main>
   </v-app>
-</template>
+</template> 
 
 <script>
 export default ({
@@ -146,3 +159,11 @@ export default ({
     }
 })
 </script>
+<style>
+
+@media all and (max-width: 1024px) and (min-width: 700px) {
+  .v-main {
+   padding-left: 80px !important;
+  }
+}
+</style>
